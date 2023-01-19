@@ -1,0 +1,187 @@
+.offers {
+    margin-top: 115px;
+    margin-bottom: 84px;
+    @media screen and (max-width: $breakpoint1450) {
+        margin-top: 80px;
+        margin-bottom: 42px;
+    }
+    @media screen and (max-width: $burgerBreakpoint) {
+        margin-top: 40px;
+        margin-bottom: 24px;
+    }
+}
+
+.offers-wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 120px;
+    background-image: url(../img/main-bg.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    padding: 84px 54px;
+    @media screen and (max-width: $breakpoint1450) {
+        padding: 42px 24px;
+        flex-direction: column-reverse;
+        background-size: cover;
+        gap: 100px;
+    }
+    @media screen and (max-width: $burgerBreakpoint) {
+        border-radius: 0;
+        padding: 42px 24px;
+    }
+    @media screen and (max-width: $breakpoint768) {
+        background-size: 100%;
+        background-image: url(../img/bg-mobile.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom;
+        gap: 20px;
+        padding: 16px;
+    }
+}
+
+.offers-form {
+    position: relative;
+    min-width: 550px;
+    height: 100%;
+    background: $white;
+    box-shadow: 0px 2px 50px rgba(35, 37, 38, 0.07);
+    border-radius: 22px;
+    padding: 45px 10px 70px 50px;
+    @media screen and (max-width: $breakpoint768) {
+        background: none;
+        box-shadow: none;
+        min-width: 100%;
+        padding: 45px 10px;
+        border-radius: 0;
+        @include adaptiv-padding-b(1000, 200);
+    }
+}
+
+.offers-form__items {
+    h2 {
+        display: block;
+        margin-bottom: 30px;
+        font-weight: 700;
+        @include adaptiv-font(50, 22);
+        line-height: 1.38;
+        color: $black;
+    }
+    p {
+        display: block;
+        max-width: 400px;
+        margin-bottom: 36px;
+        font-weight: 500;
+        @include adaptiv-font(18, 14);
+        line-height: 1.44;
+        color: $black;
+    }
+    input {
+        width: 90%;
+        border: 1px solid #C9C9C9;
+        border-radius: 14px;
+        padding: 26px 24px;
+        @media screen and (max-width: $breakpoint768) {
+            width: 100%;
+        }
+    }
+}
+
+::-webkit-input-placeholder {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    color: $black;
+}
+
+::-moz-placeholder {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    color: $black;
+}
+
+.form-btn {
+    position: relative;
+    display: block;
+    margin-top: 16px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: center;
+    color: $white;
+    padding: 26px 36px;
+    @media screen and (max-width: $breakpoint768) {
+        width: 100%;
+    }
+}
+
+.form-btn::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 60px;
+    background: url(../img/arrow.svg);
+    background-repeat: no-repeat;
+    top: 0;
+    right: -118px;
+    @media screen and (max-width: $burgerBreakpoint) {
+        display: none;
+    }
+}
+
+.offers-form__car {
+    position: absolute;
+    bottom: -295px;
+    left: -195px;
+    @media screen and (max-width: $breakpoint1450) {
+        display: none;
+    }
+}
+
+.offers-items {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2.5rem;
+    @media screen and (max-width: $breakpoint768) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.offers-item {
+    @media screen and (max-width: $breakpoint768) {
+        background: #FFFFFF;
+        box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.12);
+        border-radius: 16px;
+        padding: 20px;
+    }
+}
+
+.offers-item__img {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(250, 0, 44, 0.15);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    &:hover {
+        transform: rotate(360deg);
+        transition: 1s all ease;
+    }
+}
+
+.offers-item__text {
+    font-weight: 500;
+    @include adaptiv-font(18, 14);
+    line-height: 1.44;
+    color: $black;
+}

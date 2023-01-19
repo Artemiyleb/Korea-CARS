@@ -1,0 +1,107 @@
+// Container
+.container {
+    max-width: ($containerWidth + $containerPadding) + px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 $containerSidePadding + px;
+    @media (max-width: $breakpoint1450) {
+        max-width: 1200px;
+    }
+    @media (max-width: $breakpoint992) {
+        max-width: 970px;
+    }
+    @media (max-width: $breakpoint768) {
+        max-width: 740px;
+    }
+    @media (max-width: $breakpoint480) {
+        max-width: none;
+    }
+}
+
+// Body & Locked
+body {
+    font-family: $fontMain;
+    font-weight: 500;
+    font-size: 16px;
+    &.locked {
+        overflow: hidden;
+    }
+}
+
+// Animations
+// Fade
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+// Mixins
+//////////////////////////////////////////////////////////////////
+// Миксин резинового текста:
+// Передается maxWidth по макету
+// Вызывается: @include adaptiv-font(40, 24);
+// Где 40px шрифт по макету, 24px Максимальная величина шрифта при разрешении 320px
+//////////////////////////////////////////////////////////////////
+$maxWidth: 1920;
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+// Резиновый Padding
+@mixin adaptiv-padding($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    padding: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin adaptiv-padding-top($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    padding-top: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin adaptiv-padding-r($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    padding-right: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin adaptiv-padding-b($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    padding-bottom: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin adaptiv-padding-l($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    padding-left: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+// Font Face
+@mixin font-face($font-family, $url, $weight, $style) {
+    @font-face {
+        font-family: "#{$font-family}";
+        src: url('../fonts/#{$url}.woff2') format("woff2");
+        font-weight: #{$weight};
+        font-display: swap;
+        font-style: $style;
+    }
+}
+
+h2 {
+    font-weight: 700;
+    @include adaptiv-font(50,
+    24);
+    line-height: 1.38x;
+    color: $black;
+    span {
+        color: $red;
+    }
+}
