@@ -28,6 +28,11 @@ body {
     }
 }
 
+a:hover {
+    color: $red;
+    transition: 0.3ms all ease;
+}
+
 // Animations
 // Fade
 @keyframes fade {

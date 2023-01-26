@@ -73,10 +73,6 @@ nav {
     &__item-link {
         color: $mainColor;
     }
-    &__item-link:hover {
-        color: $red;
-        transition: 0.3ms all ease;
-    }
     .menu__item__btn {
         padding: 16px 28px 16px 53px;
         @media (max-width: $breakpoint1450) {

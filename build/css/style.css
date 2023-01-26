@@ -83,6 +83,13 @@ body.locked {
   overflow: hidden;
 }
 
+a:hover {
+  color: #FA002C;
+  -webkit-transition: 0.3ms all ease;
+  -o-transition: 0.3ms all ease;
+  transition: 0.3ms all ease;
+}
+
 @-webkit-keyframes fade {
   0% {
     opacity: 0;
@@ -225,13 +232,6 @@ nav {
 
 .menu__item-link {
   color: #242424;
-}
-
-.menu__item-link:hover {
-  color: #FA002C;
-  -webkit-transition: 0.3ms all ease;
-  -o-transition: 0.3ms all ease;
-  transition: 0.3ms all ease;
 }
 
 .menu .menu__item__btn {
@@ -578,6 +578,7 @@ nav {
 }
 
 .consult__wrap {
+  position: relative;
   width: 100%;
   height: 530px;
   background: #FFFFFF;
@@ -588,9 +589,108 @@ nav {
   border-radius: 36px;
 }
 
+.consult__wrap h2 {
+  margin-bottom: 24px;
+}
+
+.consult__wrap p {
+  margin-bottom: 50px;
+}
+
 .consult__wrap--text {
   padding: calc(20px + 45 * ((100vw - 320px) / 1600));
   max-width: 750px;
+}
+
+.consult__car {
+  position: absolute;
+  bottom: -156px;
+  right: -256px;
+}
+
+.contacts {
+  margin-top: 120px;
+}
+
+.contacts-header {
+  margin-bottom: 32px;
+}
+
+.contacts-maps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+.map__frame {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map__frame iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.contacts-map {
+  background: #fff;
+  border: 7px solid rgba(250, 0, 44, 0.2);
+  border-radius: 36px;
+  padding: 25px 24px 44px 24px;
+}
+
+.contacts-map__items {
+  margin: 34px 24px 0 24px;
+}
+
+.contacts-map__item {
+  position: relative;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 15px;
+}
+
+.contacts-map__item--header {
+  font-weight: 500;
+  font-size: calc(22px + 8 * ((100vw - 320px) / 1600));
+  line-height: 1.23;
+  color: #000;
+}
+
+.contacts-map__item--phone {
+  font-weight: 600;
+  font-size: calc(22px + 8 * ((100vw - 320px) / 1600));
+  line-height: 1.23;
+  color: #000;
+}
+
+.contacts-map__item--address {
+  font-weight: 400;
+  font-size: calc(20px + 4 * ((100vw - 320px) / 1600));
+  line-height: 1.38;
+  color: #292929;
+  margin-left: 30px;
+}
+
+.contacts-map__item--address::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: url(../img/location.svg);
+  background-repeat: no-repeat;
+  top: 4px;
+  left: 0;
 }
 
 footer {
@@ -641,6 +741,11 @@ footer {
   .offers-form__car {
     display: none;
   }
+
+  .consult__car {
+    bottom: -152px;
+    right: -500px;
+  }
 }
 
 @media (max-width: 1199.98px) {
@@ -681,6 +786,20 @@ footer {
   .menu__item {
     text-align: center;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 1199.98px) {
+  .consult__wrap {
+    height: auto;
+  }
+
+  .consult__car {
+    display: none;
+  }
+
+  .contacts-map {
+    max-width: 100%;
   }
 }
 
@@ -885,6 +1004,11 @@ footer {
   .form-btn::after {
     display: none;
   }
+
+  .contacts-maps {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -933,6 +1057,13 @@ footer {
     border-radius: 16px;
     padding: 20px;
   }
+
+  .contacts-map__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 @media (max-width: 479.98px) {
@@ -951,5 +1082,39 @@ footer {
 @media screen and (max-width: 359.98px) {
   .hero-lend__item--flag {
     padding: 12px;
+  }
+
+  .contacts-map__items {
+    margin: 24px 10px 0 10px;
+  }
+
+  .contacts-map__item--header {
+    font-size: 18px;
+  }
+
+  .contacts-map__item--phone {
+    font-size: 18px;
+  }
+
+  .contacts-map__item--address {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 991.98px) and (max-width: 1449.98px) {
+  .contacts-map__item--header {
+    font-size: calc(18px + 4 * ((100vw - 320px) / 1600));
+  }
+
+  .contacts-map__item--phone {
+    font-size: calc(18px + 4 * ((100vw - 320px) / 1600));
+  }
+
+  .contacts-map__item--address {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 1600));
+  }
+
+  .contacts-map__item--address::before {
+    top: 0;
   }
 }

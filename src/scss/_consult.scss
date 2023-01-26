@@ -1,4 +1,5 @@
 .consult__wrap {
+    position: relative;
     width: 100%;
     height: 530px;
     background: #FFFFFF;
@@ -7,6 +8,15 @@
     background-size: cover;
     border: 7px solid #E7E7E7;
     border-radius: 36px;
+    h2 {
+        margin-bottom: 24px;
+    }
+    p {
+        margin-bottom: 50px;
+    }
+    @media screen and (max-width: $breakpoint1200) {
+        height: auto;
+    }
 }
 
 .consult__wrap--text {
@@ -16,4 +26,15 @@
 
 .consult__btn {}
 
-.consult__car {}
+.consult__car {
+    position: absolute;
+    bottom: -156px;
+    right: -256px;
+    @media screen and (max-width: $breakpoint1450) {
+        bottom: -152px;
+        right: -500px;
+    }
+    @media screen and (max-width: $breakpoint1200) {
+        display: none;
+    }
+}
